@@ -1,0 +1,26 @@
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+dotfiles:
+  aweidner_mbp_f_config.fish:
+    dst: ~/.config/fish/config.fish
+    src: aweidner-mbp/fish/config.fish
+  aweidner_mbp_f_init.vim:
+    dst: ~/.config/nvim/init.vim
+    src: aweidner-mbp/nvim/init.vim
+  f_config.fish:
+    dst: ~/.config/fish/config.fish
+    src: config/fish/config.fish
+  f_init.vim:
+    dst: ~/.config/nvim/init.vim
+    src: config/nvim/init.vim
+profiles:
+  aweidner-mbp:
+    dotfiles:
+    - aweidner_mbp_f_config.fish
+    - aweidner_mbp_f_init.vim
+  base:
+    dotfiles:
+    - f_config.fish
+    - f_init.vim
