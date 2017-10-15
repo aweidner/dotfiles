@@ -1,3 +1,4 @@
+set spell
 set termguicolors
 set number
 
