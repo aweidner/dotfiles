@@ -1,5 +1,7 @@
 fish_vi_key_bindings
 
+set -Ux EDITOR nvim
+
 function fish_mode_prompt; end
 
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
