@@ -37,3 +37,22 @@ function clean
     find . -name "__pycache__" -exec rm -rf {} \;
     find . -name ".coverage.*" -exec rm -rf {} \;
 end
+
+{%@@ if profile == "aweidner-mbp" @@%}
+set -x DEPLOY_ENV "testing"
+
+abbr dx-test venv/bin/ptw -- -vv \
+        --cov dx \
+        --cov-report html
+
+abbr lint "pylint dx/*"
+abbr gel "isort -q -ds -rc dx/; and find dx -type f -name '*.py' -print | xargs pcregrep --multiline --line-number '^import.*\nfrom' | python ~/bin/ib.py; and yapf dx --recursive -i"
+
+set -x ROOT_URL http://localhost:8000/datacentral/
+set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+set -x GRADLE_HOME ~/bin/gradle-2.4
+{%@@ endif @@%}
+
+{%@@ if profile == "base" @@%}
+abbr deploy-aweidner ansible-playbook -i ~/inventory ~/code/aweidner-ansible/deploy.yaml
+{%@@ endif @@%}
