@@ -2,6 +2,10 @@ set spell
 set termguicolors
 set number
 
+" Per project vim config files
+set exrc
+set secure
+
 " Replace tabs with 4 spaces
 set expandtab
 set tabstop=4
