@@ -66,6 +66,7 @@ Plug 'alfredodeza/coveragepy.vim'
 Plug 'embear/vim-localvimrc'
 call plug#end()
 
+{%@@ if profile == "base" @@%}
 nnoremap <silent> <Leader>fe :call fzf#run({
     \   'down': '50%',
     \   'sink': 'vsplit' })<CR>
@@ -73,6 +74,17 @@ nnoremap <silent> <Leader>fe :call fzf#run({
 nnoremap <silent> <Leader>fh :call fzf#run({
     \   'down': '50%',
     \   'sink': 'split' })<CR>
+{%@@ endif @@%}
+
+{%@@ if profile == "aweidner-mbp" @@%}
+nnoremap <silent> <Leader>fe :call fzf#run({
+    \   'down': '50%',
+    \   'sink': 'split' })<CR>
+
+nnoremap <silent> <Leader>fv :call fzf#run({
+    \   'down': '50%',
+    \   'sink': 'vsplit' })<CR>
+{%@@ endif @@%}
 
 colorscheme gruvbox
 set background=dark
