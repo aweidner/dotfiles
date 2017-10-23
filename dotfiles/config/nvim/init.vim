@@ -2,10 +2,6 @@ set spell
 set termguicolors
 set number
 
-" Per project vim config files
-set exrc
-set secure
-
 " Replace tabs with 4 spaces
 set expandtab
 set tabstop=4
@@ -67,6 +63,7 @@ Plug 'neomake/neomake'
 Plug 'karlbright/qfdo.vim'
 Plug 'vimlab/split-term.vim'
 Plug 'alfredodeza/coveragepy.vim'
+Plug 'embear/vim-localvimrc'
 call plug#end()
 
 nnoremap <silent> <Leader>fe :call fzf#run({
@@ -94,7 +91,6 @@ nnoremap <leader>rc :Coveragepy refresh<cr>
 nnoremap <leader>sc :Coveragepy show<cr>
 
 let test#python#pytest#executable = 'ptw --'
-let test#python#pytest#options = '-vv --cov module --cov-report html'
 
 function! TermStrategy(cmd)
     execute ":Term " . a:cmd
@@ -103,3 +99,5 @@ endfunction
     
 let g:test#custom_strategies = {'term': function('TermStrategy')}
 let test#strategy = 'term'
+
+let g:localvimrc_persistent = 2
