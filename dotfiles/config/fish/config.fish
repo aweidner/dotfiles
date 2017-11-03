@@ -4,7 +4,7 @@ function fish_user_key_bindings
 	bind \cf accept-autosuggestion
 end
 
-set -Ux EDITOR nvim
+set -gx EDITOR nvim
 
 function fish_mode_prompt; end
 
